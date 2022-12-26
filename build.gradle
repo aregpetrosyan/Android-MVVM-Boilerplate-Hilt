@@ -2,11 +2,11 @@
 buildscript {
     ext.kotlin_version = "1.7.20"
     ext.hilt_version = '2.44.2'
-    ext.moshi_version = '1.13.0'
+    ext.moshi_version = '1.14.0'
     ext.room_version = '2.4.3'
     ext.nav_version = '2.5.3'
     ext.coroutines_version = '1.6.4'
-    ext.glide_version = '4.12.0'
+    ext.glide_version = '4.14.2'
     repositories {
         google()
         mavenCentral()

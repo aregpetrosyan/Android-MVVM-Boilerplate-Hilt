@@ -18,6 +18,12 @@ android {
         versionCode 1
         versionName "1.0"
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -80,7 +86,7 @@ dependencies {
 
     // Glide
     implementation "com.github.bumptech.glide:glide:$glide_version"
-    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
 
     //Room
     implementation "androidx.room:room-runtime:$room_version"
