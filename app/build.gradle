@@ -8,13 +8,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
     buildToolsVersion "31.0.0"
 
     defaultConfig {
         applicationId "com.aregyan.github"
         minSdkVersion 23
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
@@ -39,6 +39,7 @@ android {
         dataBinding true
         viewBinding true
     }
+    namespace 'com.aregyan.github'
 }
 
 dependencies {
