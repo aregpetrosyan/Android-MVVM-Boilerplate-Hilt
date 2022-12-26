@@ -21,7 +21,7 @@ interface UsersDao {
     fun insertUserDetails(databaseUserDetails: DatabaseUserDetails)
 }
 
-@Database(entities = [DatabaseUserListItem::class, DatabaseUserDetails::class], version = 1)
+@Database(entities = [DatabaseUserListItem::class, DatabaseUserDetails::class], version = 1, exportSchema = false)
 abstract class UsersDatabase : RoomDatabase() {
     abstract val usersDao: UsersDao
 }

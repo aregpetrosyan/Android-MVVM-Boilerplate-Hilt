@@ -41,9 +41,9 @@ class UserListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.data.observe(viewLifecycleOwner, {
+        viewModel.data.observe(viewLifecycleOwner) {
             adapter.submitList(it)
-        })
+        }
         adapter.clickListener.onItemClick = {
             findNavController().navigate(UserListFragmentDirections.actionUsersListToUserDetails(it.username))
         }
