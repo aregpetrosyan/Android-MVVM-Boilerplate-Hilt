@@ -5,16 +5,16 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-parcelize'
+    id 'com.google.devtools.ksp'
 }
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion "31.0.0"
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.aregyan.github"
         minSdkVersion 23
-        targetSdkVersion 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -28,32 +28,33 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 
     buildFeatures {
         dataBinding true
         viewBinding true
+        buildConfig true
     }
     namespace 'com.aregyan.github'
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     // Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    ksp "com.google.dagger:hilt-compiler:$hilt_version"
 
     // Retrofit for networking
 
@@ -69,7 +70,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
 
     // Moshi
-    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+    ksp "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
     implementation "com.squareup.moshi:moshi:$moshi_version"
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
     implementation "com.squareup.moshi:moshi-adapters:$moshi_version"
@@ -80,11 +81,11 @@ dependencies {
 
     // Glide
     implementation "com.github.bumptech.glide:glide:$glide_version"
-    kapt "com.github.bumptech.glide:compiler:$glide_version"
+    ksp "com.github.bumptech.glide:compiler:$glide_version"
 
     //Room
     implementation "androidx.room:room-runtime:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
+    ksp "androidx.room:room-compiler:$room_version"
 
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:$room_version"
@@ -93,5 +94,5 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:5.0.1'
 
     // Leak Canary
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
 }

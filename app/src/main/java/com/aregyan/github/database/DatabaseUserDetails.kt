@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import com.aregyan.github.domain.UserDetails
 
 @Entity
-data class DatabaseUserDetails constructor(
+data class DatabaseUserDetails(
     @PrimaryKey
     val user: String,
     val avatar: String,

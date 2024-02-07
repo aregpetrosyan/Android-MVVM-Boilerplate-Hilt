@@ -42,9 +42,9 @@ class UserDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getUserDetails(args.user).observe(viewLifecycleOwner, {
+        viewModel.getUserDetails(args.user).observe(viewLifecycleOwner) {
             viewModel.userDetails.set(it)
-        })
+        }
     }
 
     override fun onDestroyView() {

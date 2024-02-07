@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import com.aregyan.github.domain.UserListItem
 
 @Entity
-data class DatabaseUserListItem constructor(
+data class DatabaseUserListItem(
     @PrimaryKey
     val id: Int,
     val avatar: String,

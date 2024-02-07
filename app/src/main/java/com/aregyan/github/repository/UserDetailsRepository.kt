@@ -1,7 +1,7 @@
 package com.aregyan.github.repository
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
+import androidx.lifecycle.map
 import com.aregyan.github.database.UsersDatabase
 import com.aregyan.github.database.asDomainModel
 import com.aregyan.github.domain.UserDetails
@@ -15,10 +15,8 @@ class UserDetailsRepository @Inject constructor(
     private val database: UsersDatabase
 ) {
 
-    fun getUserDetails(user: String): LiveData<UserDetails> {
-        return Transformations.map(database.usersDao.getUserDetails(user)) {
-            it?.asDomainModel()
-        }
+    fun getUserDetails(user: String): LiveData<UserDetails?> {
+        return database.usersDao.getUserDetails(user).map { it?.asDomainModel() }
     }
 
 

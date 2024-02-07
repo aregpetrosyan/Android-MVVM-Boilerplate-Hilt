@@ -1,7 +1,7 @@
 package com.aregyan.github.repository
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
+import androidx.lifecycle.map
 import com.aregyan.github.database.UsersDatabase
 import com.aregyan.github.database.asDomainModel
 import com.aregyan.github.domain.UserListItem
@@ -15,10 +15,7 @@ class UserListRepository @Inject constructor(
     private val database: UsersDatabase
 ) {
 
-    val users: LiveData<List<UserListItem>> =
-        Transformations.map(database.usersDao.getDatabaseUsers()) {
-            it.asDomainModel()
-        }
+    val users: LiveData<List<UserListItem>?> = database.usersDao.getDatabaseUsers().map { it?.asDomainModel() }
 
     suspend fun refreshUserList() {
         try {
